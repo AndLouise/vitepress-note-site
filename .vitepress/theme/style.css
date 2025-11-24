@@ -1,0 +1,82 @@
+/* .vitepress/theme/style.css */
+
+/* 自定义主题色 */
+:root {
+  --vp-c-brand: #3eaf7c;
+  --vp-c-brand-light: #4abf8a;
+  --vp-c-brand-lighter: #5aca96;
+  --vp-c-brand-dark: #309a6a;
+  --vp-c-brand-darker: #27855a;
+  
+  --vp-c-sponsor: #fd1d7c;
+}
+
+/* 首页英雄区域美化 */
+.VPHero .name {
+  background: linear-gradient(135deg, #3eaf7c 0%, #1a6e4c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.VPHero .text {
+  font-size: 1.8rem;
+  color: var(--vp-c-text-1);
+  margin: 1rem 0;
+}
+
+/* 导航栏美化 */
+.VPNav {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+/* 侧边栏美化 */
+.VPSidebar {
+  background: var(--vp-c-bg-soft);
+}
+
+.VPSidebar .group {
+  border-left: 3px solid var(--vp-c-brand);
+  margin-left: 8px;
+}
+
+/* 代码块美化 */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮美化 */
+.VPButton {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.VPButton.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* 特性卡片美化 */
+.VPFeatures .item {
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.VPFeatures .item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 页脚美化 */
+.VPFooter {
+  background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--vp-c-divider);
+}

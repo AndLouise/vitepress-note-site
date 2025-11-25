@@ -27,22 +27,52 @@
   margin: 1rem 0;
 }
 
-/* 导航栏美化 */
-.VPNav {
-  background: rgba(255, 255, 255, 0.9) !important;
+
+/* ------------------------------ */
+/* 导航栏
+/* ------------------------------ */
+/* 白天： */
+html:not(.dark) .VPNav,
+html:not(.dark) .VPNavBar,
+html:not(.dark) .VPNavBar .container {
+  background: rgba(255, 255, 255, 0.36) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--vp-c-divider);
 }
-
-/* 侧边栏美化 */
-.VPSidebar {
-  background: var(--vp-c-bg-soft);
+/* 夜间：统一改成深灰磨砂 */
+html.dark .VPNav,
+html.dark .VPNavBar,
+html.dark .VPNavBar .container {
+  background: rgba(20, 20, 20, 0.6) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+
+
+
+/* ------------------------------ */
+/* 侧边栏
+/* ------------------------------ */
+/* 白天侧边栏：更亮一点、少一点模糊 */
+html:not(.dark) .VPSidebar {
+  background: rgba(255, 255, 255, 0.36) !important;
+  backdrop-filter: blur(6px);
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+/* 夜间：深灰透明 + 磨砂 */
+html.dark .VPSidebar {
+  background: rgba(20, 20, 20, 0.6) !important;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+/* 侧边栏标题左侧绿色竖线（保持你的风格） */
 .VPSidebar .group {
   border-left: 3px solid var(--vp-c-brand);
   margin-left: 8px;
 }
+
 
 /* 代码块美化 */
 .vp-doc div[class*='language-'] {
@@ -61,22 +91,61 @@
   font-size: 1rem;
 }
 
-/* 特性卡片美化 */
+/*  特性卡片（外层） */
 .VPFeatures .item {
-  background: var(--vp-c-bg-soft);
   border-radius: 12px;
   padding: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
   border: 1px solid var(--vp-c-divider);
 }
 
+/*  白天： */
+html:not(.dark) .VPFeatures .item {
+  background: rgba(255, 255, 255, 0.70);
+  /* ↑ #5a8b8b 转成 rgba(90,139,139,alpha)
+       alpha=0.35 可调整透光程度 */
+}
+
+/*  夜间：深灰磨砂 */
+html.dark .VPFeatures .item {
+  background: rgba(40, 40, 40, 0.55);
+}
+
+/* 悬停效果 */
 .VPFeatures .item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
+
+/* ------------------------------------- */
+/* 内层卡片保持透明（避免叠色） */
+/* ------------------------------------- */
+.VPFeature {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 
 /* 页脚美化 */
 .VPFooter {
   background: var(--vp-c-bg-soft);
   border-top: 1px solid var(--vp-c-divider);
 }
+
+
+/* 默认：所有页面先不加森林背景（保持干净） */
+body {
+  background: none;
+}
+
+/* 只有包含 .VPHome 的页面（也就是首页），才使用森林背景 */
+body:has(.VPHome) {
+  background-image: url('/forest-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* PC 端固定，手机会自动降级 */
+}
+
+

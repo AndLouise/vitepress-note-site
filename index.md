@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "And_Louise_Note"
-  text: "天晴 VitePress Site"
-  tagline: My great project tagline
+  name: "雨过天晴"
+  text: "And_Louise_Note"
+  tagline: 空山新雨后，天气晚来秋
   actions:
     - theme: brand
       text: Markdown Examples
